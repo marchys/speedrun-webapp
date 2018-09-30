@@ -18,6 +18,8 @@
   "author": "Marcel Barros Aparici",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^3.1.2",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },
@@ -41,7 +43,6 @@
     "husky": "^1.0.1",
     "jest": "^23.6.0",
     "lint-staged": "^7.3.0",
-    "prop-types": "^15.6.2",
     "react-hot-loader": "^4.3.11",
     "regenerator-runtime": "^0.12.1",
     "webpack": "^4.20.2",

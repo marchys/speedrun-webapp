@@ -1,8 +1,20 @@
 import React from 'react';
 import Speedruns from '../speedruns/containers/Speedruns';
 
+const style = {
+  display: 'flex',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  maxWidth: '690px',
+  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+};
+
 function Root() {
-  return <Speedruns />;
+  return (
+    <div style={style}>
+      <Speedruns />
+    </div>
+  );
 }
 
 let ExportedRoot = Root; // eslint-disable-line import/no-mutable-exports

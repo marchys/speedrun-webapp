@@ -1,3 +1,4 @@
+const paths = require('./paths');
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
@@ -58,9 +59,7 @@ module.exports = {
   // globals: {},
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  // moduleDirectories: [
-  //   "node_modules"
-  // ],
+  moduleDirectories: ['node_modules', paths.appSrc],
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
