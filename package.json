@@ -4,8 +4,8 @@
   "description": "A simple speedrun webapp",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --open --mode development",
-    "build": "webpack --mode production",
+    "start": "better-npm-run start",
+    "build": "better-npm-run build",
     "precommit": "lint-staged",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -15,26 +15,52 @@
       "eslint"
     ]
   },
+  "betterScripts": {
+    "start": {
+      "command": "webpack-dev-server --hot --open --mode development",
+      "env": {
+        "SPEEDRUNS_API": "http://localhost:8080"
+      }
+    },
+    "build": {
+      "command": "webpack --mode production",
+      "env": {
+        "SPEEDRUNS_API": "http://www.speedrun.com"
+      }
+    }
+  },
   "author": "Marcel Barros Aparici",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "@material-ui/core": "^3.1.2",
+    "axios": "^0.18.0",
+    "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-actions": "^2.6.1",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
+    "babel-plugin-dynamic-import-node": "^2.1.0",
+    "better-npm-run": "^0.1.1",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
@@ -42,7 +68,9 @@
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.0.1",
     "jest": "^23.6.0",
+    "jest-enzyme": "^6.1.2",
     "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3",
     "react-hot-loader": "^4.3.11",
     "regenerator-runtime": "^0.12.1",
     "webpack": "^4.20.2",

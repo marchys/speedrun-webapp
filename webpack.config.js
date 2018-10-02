@@ -1,9 +1,10 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const paths = require('./paths');
 
 module.exports = {
   context: paths.appSrc,
-  entry: 'index.jsx',
+  entry: ['@babel/polyfill', 'index.jsx'],
   module: {
     rules: [
       {
@@ -24,6 +25,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.EnvironmentPlugin(['SPEEDRUNS_API']),
     new HtmlWebPackPlugin({
       template: paths.appHtml,
     }),
@@ -31,5 +33,14 @@ module.exports = {
   resolve: {
     modules: ['node_modules', paths.appSrc],
     extensions: ['.js', '.jsx'],
+  },
+  devServer: {
+    proxy: {
+      '/api/v1': {
+        target: 'http://www.speedrun.com',
+        secure: false,
+        changeOrigin: true,
+      },
+    },
   },
 };
