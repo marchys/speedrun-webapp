@@ -5,6 +5,7 @@ Object {
   "games": Object {
     "error": null,
     "games": Array [],
+    "loaded": false,
     "loading": false,
   },
 }

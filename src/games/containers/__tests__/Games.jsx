@@ -11,8 +11,16 @@ const defaultGames = [
   { id: 'awetras', name: 'fallout', image: 'https://about.gitlab.com/' },
 ];
 
-function setup({ games = defaultGames, getGames = jest.fn(), loading = false, ...props } = {}) {
-  const wrapper = shallow(<Games games={games} getGames={getGames} loading={loading} {...props} />);
+function setup({
+  games = defaultGames,
+  getGames = jest.fn(),
+  loading = false,
+  loaded = false,
+  ...props
+} = {}) {
+  const wrapper = shallow(
+    <Games games={games} getGames={getGames} loading={loading} loaded={loaded} {...props} />,
+  );
   return {
     wrapper,
     get gameItems() {
