@@ -1,5 +1,5 @@
 import React from 'react';
 
-const AppError = () => <p> There was an unexpected error </p>;
-
-export default AppError;
+export default function AppError() {
+  return <p> There was an unexpected error </p>;
+}

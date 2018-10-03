@@ -5,6 +5,11 @@ const paths = require('./paths');
 module.exports = {
   context: paths.appSrc,
   entry: ['@babel/polyfill', 'index.jsx'],
+  output: {
+    path: paths.appDist,
+    publicPath: '/',
+    filename: 'main.js',
+  },
   module: {
     rules: [
       {
@@ -35,6 +40,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
+    historyApiFallback: true,
     proxy: {
       '/api/v1': {
         target: 'http://www.speedrun.com',
