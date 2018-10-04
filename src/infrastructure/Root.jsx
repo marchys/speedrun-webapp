@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import Games from 'games/containers/Games';
 import GameDetails from 'gameDetails/containers/GameDetails';
@@ -20,7 +20,7 @@ const store = configureStore();
 function Root() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter>
         <div style={style}>
           <Switch>
             <Route exact path="/" component={Games} />
@@ -28,7 +28,7 @@ function Root() {
             <Route component={NotFound} />
           </Switch>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   );
 }

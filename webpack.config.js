@@ -7,7 +7,7 @@ module.exports = {
   entry: ['@babel/polyfill', 'index.jsx'],
   output: {
     path: paths.appDist,
-    publicPath: '/',
+    publicPath: paths.publicPath,
     filename: 'main.js',
   },
   module: {
